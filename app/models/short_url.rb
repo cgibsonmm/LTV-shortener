@@ -1,3 +1,4 @@
+require 'open-uri'
 class ShortUrl < ApplicationRecord
   # Decided to move the logic around converting ID and Decoding ID out of model
   include IdParser
@@ -13,7 +14,12 @@ class ShortUrl < ApplicationRecord
     convert_id(id)
   end
 
-  def update_title!; end
+  # I am guessing that this was not meant to run as a background job, due to testing not calling reload?
+  def update_title!
+    doc = Nokogiri::HTML(URI.open(full_url))
+    title = doc.at_css('title').text
+    update!(title: title)
+  end
 
   scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
 
