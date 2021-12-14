@@ -10,6 +10,8 @@ My code is influenced by the [This Stack Overflow](https://stackoverflow.com/que
 ### Questions I still have
  After the create I return the whole short_url in JSON, would it have been better just to return something like `{url: mysite.com/abc}`?
 
+ I noticed there was no .gitignore file, I just added tmp/cache to it and left everything else, just incase you wanted to read through my dev logs.
+
  Also, there seems to be a lot of debate on what on how to validate a URL, I would love to hear more insight into the method I used vs other approaches.
 
  If there is any further question please feel free to reach out *Thank You!*
