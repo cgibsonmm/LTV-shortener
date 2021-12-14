@@ -3,7 +3,9 @@ class ShortUrlsController < ApplicationController
   # Since we're working on an API, we don't have authenticity tokens
   skip_before_action :verify_authenticity_token
 
-  def index; end
+  def index
+    @urls = ShortUrl.all.order('click_count DESC').limit(100)
+  end
 
   def create
     @short_url = ShortUrl.new(create_params)
@@ -31,7 +33,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def find_short_url
-    @short_url = ShortUrl.find(decode_id(params[:id]))
+    @short_url = ShortUrl.find_by_short_code(params[:id])
   rescue ActiveRecord::RecordNotFound
     render json: { errors: 'URL not found' }, status: :not_found
   end

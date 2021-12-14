@@ -21,7 +21,15 @@ class ShortUrl < ApplicationRecord
     update!(title: title)
   end
 
-  scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
+  def public_attributes
+    slice('short_code', 'full_url', 'title', 'click_count')
+  end
+
+  def self.find_by_short_code(code)
+    id = decode_id(code)
+    where('id', id).first
+  end
+  # scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
 
   private
 
