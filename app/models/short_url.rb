@@ -2,6 +2,7 @@ require 'open-uri'
 class ShortUrl < ApplicationRecord
   # Decided to move the logic around converting ID and Decoding ID out of model
   include IdParser
+  after_create :enqueue_update_title
 
   # struggled for awhile to decide what to do until I saw this.
   # CHARACTERS = [*'0'..'9', *'a'..'z', *'A'..'Z'].freeze
@@ -15,6 +16,8 @@ class ShortUrl < ApplicationRecord
   end
 
   # I am guessing that this was not meant to run as a background job, due to testing not calling reload?
+  # After doing some more research I realized I could / should call this method from the job.
+  # TODO: make this more robust
   def update_title!
     doc = Nokogiri::HTML(URI.open(full_url))
     title = doc.at_css('title').text
@@ -32,6 +35,10 @@ class ShortUrl < ApplicationRecord
   # scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
 
   private
+
+  def enqueue_update_title
+    UpdateTitleJob.perform_later(id)
+  end
 
   def validate_full_url
     # This is a not perfect solution looks to brittle and would not work on URL such as https://https://www.foo.org
