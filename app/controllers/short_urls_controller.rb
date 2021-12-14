@@ -11,7 +11,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def create
-    ShortUrl.create!(create_params)
+    @short_url = ShortUrl.create!(create_params)
     render :show
   end
 
@@ -31,10 +31,12 @@ class ShortUrlsController < ApplicationController
   end
 
   def record_not_found(error)
-    render json: { errors: error.full_message }, status: :not_found
+    @error = error
+    render 'errors/record_not_found', status: :not_found
   end
 
   def record_invalid(error)
-    render json: { errors: error.full_message }, status: :unprocessable_entity
+    @error = error
+    render 'errors/record_invalid', status: :unprocessable_entity
   end
 end
