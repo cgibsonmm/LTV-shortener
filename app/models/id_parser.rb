@@ -5,14 +5,14 @@ module IdParser
   CHARACTERS = [*'0'..'9', *'a'..'z', *'A'..'Z'].freeze
 
   # Converts an ID into a base 62 number
-  
+
   def convert_id(id)
     return 0 if id == 0
 
     result = ''
     while id > 0
       reminder = id % 62
-      result << CHARACTERS[reminder]
+      result.prepend(CHARACTERS[reminder])
       id = (id / 62).floor
     end
     result
@@ -27,7 +27,7 @@ module IdParser
     base_10 = 0
     digit = 0
 
-    count.each do |int|
+    count.reverse.each do |int|
       base_10 += int * (62**digit)
       digit += 1
     end
