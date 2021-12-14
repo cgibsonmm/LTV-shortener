@@ -1,7 +1,5 @@
-require 'open-uri'
 class ShortUrl < ApplicationRecord
   # Decided to move the logic around converting ID and Decoding ID out of model
-  include IdParser
   after_create :enqueue_update_title
 
   # struggled for awhile to decide what to do until I saw this.
@@ -12,7 +10,7 @@ class ShortUrl < ApplicationRecord
   def short_code
     return nil unless id
 
-    convert_id(id)
+    IdParser.convert_id(id)
   end
 
   # I am guessing that this was not meant to run as a background job, due to testing not calling reload?
@@ -29,9 +27,8 @@ class ShortUrl < ApplicationRecord
   end
 
   def self.find_by_short_code(code)
-    find(decode_id(code))
+    find(IdParser.decode_id(code))
   end
-  # scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
 
   scope :top100, -> { order('click_count DESC').limit(100) }
 

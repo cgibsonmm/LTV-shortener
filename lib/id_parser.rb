@@ -6,7 +6,7 @@ module IdParser
 
   # Converts an ID into a base 62 number
 
-  def convert_id(id)
+  def self.convert_id(id)
     return 0 if id == 0
 
     result = ''
@@ -18,7 +18,7 @@ module IdParser
     result
   end
 
-  def decode_id(id)
+  def self.decode_id(id)
     chars = id.to_s.split('')
     count = chars.map do |item|
       CHARACTERS.index(item)
