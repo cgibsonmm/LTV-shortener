@@ -1,4 +1,5 @@
 class ShortUrlsController < ApplicationController
+  before_action :find_short_url, only: [:show]
   # Since we're working on an API, we don't have authenticity tokens
   skip_before_action :verify_authenticity_token
 
@@ -15,11 +16,23 @@ class ShortUrlsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if @short_url.update!(click_count: @short_url.click_count + 1)
+      redirect_to @short_url.full_url
+    else
+      render json: { errors: @short_url.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 
   private
 
   def create_params
     params.permit(:full_url)
+  end
+
+  def find_short_url
+    @short_url = ShortUrl.find(decode_id(params[:id]))
+  rescue ActiveRecord::RecordNotFound
+    render json: { errors: 'URL not found' }, status: :not_found
   end
 end
