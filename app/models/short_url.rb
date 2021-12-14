@@ -29,10 +29,11 @@ class ShortUrl < ApplicationRecord
   end
 
   def self.find_by_short_code(code)
-    id = decode_id(code)
-    where('id', id).first
+    find(decode_id(code))
   end
   # scope :find_by_short_code, ->(code) { where('id', decode_id(code)).first }
+
+  scope :top100, -> { order('click_count DESC').limit(100) }
 
   private
 
