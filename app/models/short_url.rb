@@ -7,6 +7,12 @@ class ShortUrl < ApplicationRecord
   validates :full_url, presence: true
   validate :validate_full_url
 
+  scope :top100, -> { order('click_count DESC').limit(100) }
+
+  def self.find_by_short_code(code)
+    find(IdParser.decode_id(code))
+  end
+
   def short_code
     return nil unless id
 
@@ -25,12 +31,6 @@ class ShortUrl < ApplicationRecord
   def public_attributes
     slice('short_code', 'full_url', 'title', 'click_count')
   end
-
-  def self.find_by_short_code(code)
-    find(IdParser.decode_id(code))
-  end
-
-  scope :top100, -> { order('click_count DESC').limit(100) }
 
   private
 
