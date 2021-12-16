@@ -1,6 +1,8 @@
+const BASE_URL = process.env.BACKEND_URL || "localhost:3001";
+
 describe("index", () => {
   beforeEach(() => {
-    cy.visit("localhost:3001");
+    cy.visit(BASE_URL);
   });
   it("renders", () => {
     cy.findAllByText("CompressURL").should("exist");
