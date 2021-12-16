@@ -11,7 +11,15 @@ describe("index", () => {
 
   context("valid url", () => {
     it("allows user to create a short url", () => {
+      cy.intercept("/short_urls.json", { fixture: "createURL" }).as(
+        "createShortURL"
+      );
       cy.findByTestId("form-input").type("http://www.testsite.com");
+      cy.findByTestId("submit-btn").click();
+      cy.wait(["@createShortURL"]).then((intercept) => {
+        assert.isNotNull(intercept.response.body);
+      });
+      cy.findAllByTestId("short-code").should("have.text", "Short URL: 9");
     });
   });
 });
