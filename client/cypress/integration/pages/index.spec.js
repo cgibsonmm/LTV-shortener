@@ -1,4 +1,5 @@
-const BASE_URL = process.env.BACKEND_URL || "localhost:3001";
+const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000";
 
 describe("index", () => {
   beforeEach(() => {
@@ -14,12 +15,13 @@ describe("index", () => {
       cy.intercept("/short_urls.json", { fixture: "createURL" }).as(
         "createShortURL"
       );
+      const fullURL = `${BACKEND_URL}/9`;
       cy.findByTestId("form-input").type("http://www.testsite.com");
       cy.findByTestId("submit-btn").click();
       cy.wait(["@createShortURL"]).then((intercept) => {
         assert.isNotNull(intercept.response.body);
       });
-      cy.findAllByTestId("short-code").should("have.text", "Short URL: 9");
+      cy.findAllByTestId("short-code").should("have.text", fullURL);
     });
   });
 
@@ -35,7 +37,7 @@ describe("index", () => {
         fixture: "createURLFailure",
         statusCode: 422,
       }).as("createShortURL");
-      cy.findByTestId("form-input").type("http://www.testsite.com");
+      cy.findByTestId("form-input").type("http://www.some-random-error.com");
       cy.findByTestId("submit-btn").click();
       cy.wait(["@createShortURL"]).then((intercept) => {
         assert.isNotNull(intercept.response.body);

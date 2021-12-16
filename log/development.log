@@ -2679,3 +2679,637 @@ Processing by ShortUrlsController#create as */*
 Completed 422 Unprocessable Entity in 28ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 2833)
 
 
+Started POST "/short_urls" for 172.19.0.1 at 2021-12-16 05:03:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#create as */*
+  Parameters: {"full_url"=>"www.google.com", "short_url"=>{"full_url"=>"www.google.com"}}
+[31mUnpermitted parameter: :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 4.0ms | Allocations: 247)
+Completed 422 Unprocessable Entity in 20ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 2810)
+
+
+Started POST "/short_urls" for 172.19.0.1 at 2021-12-16 05:03:14 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as */*
+  Parameters: {"full_url"=>"https://www.google.com", "short_url"=>{"full_url"=>"https://www.google.com"}}
+[31mUnpermitted parameter: :short_url[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (1.1ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://www.google.com', '2021-12-16 05:03:14.147863', '2021-12-16 05:03:14.147863')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: b7fdfbd0-51f1-4793-9d85-1c89b000b97c) to Resque(default) with arguments: 22
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 2.6ms | Allocations: 129)
+Completed 200 OK in 47ms (Views: 12.2ms | ActiveRecord: 3.5ms | Allocations: 4174)
+
+
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c] Performing UpdateTitleJob (Job ID: b7fdfbd0-51f1-4793-9d85-1c89b000b97c) from Resque(default) enqueued at 2021-12-16T05:03:14Z with arguments: 22
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   [1m[35m (6.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 22 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   [1m[36mShortUrl Update (0.8ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'Google', `short_urls`.`updated_at` = '2021-12-16 05:03:19.685528' WHERE `short_urls`.`id` = 22[0m
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [b7fdfbd0-51f1-4793-9d85-1c89b000b97c] Performed UpdateTitleJob (Job ID: b7fdfbd0-51f1-4793-9d85-1c89b000b97c) from Resque(default) in 486.12ms
+Started POST "/m" for 172.19.0.1 at 2021-12-16 05:03:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [POST] "/m"):
+  
+actionpack (6.0.3.6) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.6) lib/rails/engine.rb:527:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/m" for 172.19.0.1 at 2021-12-16 05:03:30 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"full_url"=>"https://www.google.com", "id"=>"m", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  [1m[36mShortUrl Load (1.1ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 22 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (1.0ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 05:03:30.298414' WHERE `short_urls`.`id` = 22[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://www.google.com
+Completed 302 Found in 33ms (ActiveRecord: 4.6ms | Allocations: 3841)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-16 05:03:45 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  Parameters: {"full_url"=>"https://www.google.com", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 12.6ms | Allocations: 2532)
+Completed 200 OK in 24ms (Views: 17.8ms | ActiveRecord: 1.6ms | Allocations: 3156)
+
+
+Started GET "/4" for 172.19.0.1 at 2021-12-16 05:04:35 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"full_url"=>"https://www.google.com", "id"=>"4", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  [1m[36mShortUrl Load (1.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 4 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (1.1ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 3, `short_urls`.`updated_at` = '2021-12-16 05:04:35.174307' WHERE `short_urls`.`id` = 4[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://www.facebook.com/abc
+Completed 302 Found in 32ms (ActiveRecord: 5.2ms | Allocations: 3321)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-16 05:04:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  Parameters: {"full_url"=>"https://www.google.com", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.0ms | Allocations: 2448)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 1.2ms | Allocations: 2896)
+
+
+Started GET "/n" for 172.19.0.1 at 2021-12-16 17:26:41 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#show as */*
+  Parameters: {"full_url"=>"https://www.google.com", "id"=>"n", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 23 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  Rendering errors/record_not_found.json.jbuilder
+  Rendered errors/record_not_found.json.jbuilder (Duration: 5.6ms | Allocations: 374)
+Completed 404 Not Found in 48ms (Views: 32.5ms | ActiveRecord: 3.0ms | Allocations: 4128)
+
+
+Started GET "/h" for 172.19.0.1 at 2021-12-16 17:26:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"full_url"=>"https://www.google.com", "id"=>"h", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  [1m[36mShortUrl Load (1.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 17 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.8ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 17:26:58.301886' WHERE `short_urls`.`id` = 17[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://google.com
+Completed 302 Found in 29ms (ActiveRecord: 3.4ms | Allocations: 7339)
+
+
+Started GET "/h" for 172.19.0.1 at 2021-12-16 17:27:14 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"full_url"=>"https://www.google.com", "id"=>"h", "short_url"=>{"full_url"=>"https://www.google.com"}}
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 17 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.6ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 2, `short_urls`.`updated_at` = '2021-12-16 17:27:14.113843' WHERE `short_urls`.`id` = 17[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://google.com
+Completed 302 Found in 19ms (ActiveRecord: 2.6ms | Allocations: 3355)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 18:30:55 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-16 18:30:55.921745', '2021-12-16 18:30:55.921745')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 9b13dc6c-15e0-4b32-b5e0-ac76a0f80288) to Resque(default) with arguments: 23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 1.9ms | Allocations: 133)
+Completed 200 OK in 109ms (Views: 6.5ms | ActiveRecord: 2.1ms | Allocations: 10912)
+
+
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288] Performing UpdateTitleJob (Job ID: 9b13dc6c-15e0-4b32-b5e0-ac76a0f80288) from Resque(default) enqueued at 2021-12-16T18:30:56Z with arguments: 23
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288]   [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 23 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [9b13dc6c-15e0-4b32-b5e0-ac76a0f80288] Error performing UpdateTitleJob (Job ID: 9b13dc6c-15e0-4b32-b5e0-ac76a0f80288) from Resque(default) in 250.92ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 19:36:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"http://www.hello.com", "short_url"=>{"full_url"=>"http://www.hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://www.hello.com', '2021-12-16 19:36:12.333683', '2021-12-16 19:36:12.333683')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 78947432-03cc-4d90-96a3-848d1b74ccfd) to Resque(default) with arguments: 24
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 5.9ms | Allocations: 249)
+Completed 200 OK in 168ms (Views: 36.9ms | ActiveRecord: 5.3ms | Allocations: 16797)
+
+
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd] Performing UpdateTitleJob (Job ID: 78947432-03cc-4d90-96a3-848d1b74ccfd) from Resque(default) enqueued at 2021-12-16T19:36:12Z with arguments: 24
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 24 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   [1m[36mShortUrl Update (0.8ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'hello network', `short_urls`.`updated_at` = '2021-12-16 19:36:13.907260' WHERE `short_urls`.`id` = 24[0m
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [78947432-03cc-4d90-96a3-848d1b74ccfd] Performed UpdateTitleJob (Job ID: 78947432-03cc-4d90-96a3-848d1b74ccfd) from Resque(default) in 516.3ms
+Started GET "/a" for 172.19.0.1 at 2021-12-16 19:48:30 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"a"}
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 10 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (1.3ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 19:48:30.788344' WHERE `short_urls`.`id` = 10[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to http://www.testsite.com
+Completed 302 Found in 39ms (ActiveRecord: 5.6ms | Allocations: 6152)
+
+
+Started GET "/g" for 172.19.0.1 at 2021-12-16 19:48:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"g"}
+  [1m[36mShortUrl Load (1.0ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 16 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.5ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 19:48:42.428559' WHERE `short_urls`.`id` = 16[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://google.com
+Completed 302 Found in 26ms (ActiveRecord: 3.6ms | Allocations: 3361)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 19:53:21 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"http://www.hello.com", "short_url"=>{"full_url"=>"http://www.hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://www.hello.com', '2021-12-16 19:53:21.878853', '2021-12-16 19:53:21.878853')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 2dc170f0-59f6-4292-8c39-c3258db49c26) to Resque(default) with arguments: 25
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 2.0ms | Allocations: 130)
+Completed 200 OK in 25ms (Views: 8.1ms | ActiveRecord: 2.1ms | Allocations: 5167)
+
+
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26] Performing UpdateTitleJob (Job ID: 2dc170f0-59f6-4292-8c39-c3258db49c26) from Resque(default) enqueued at 2021-12-16T19:53:21Z with arguments: 25
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 25 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   [1m[36mShortUrl Update (0.5ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'hello network', `short_urls`.`updated_at` = '2021-12-16 19:53:25.555341' WHERE `short_urls`.`id` = 25[0m
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [2dc170f0-59f6-4292-8c39-c3258db49c26] Performed UpdateTitleJob (Job ID: 2dc170f0-59f6-4292-8c39-c3258db49c26) from Resque(default) in 384.47ms
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 19:54:18 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"http://www.hello.com", "short_url"=>{"full_url"=>"http://www.hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (1.1ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://www.hello.com', '2021-12-16 19:54:18.477402', '2021-12-16 19:54:18.477402')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 94b3154a-ef52-4110-9d08-ba2b8d4f8b16) to Resque(default) with arguments: 26
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 71)
+Completed 200 OK in 20ms (Views: 2.5ms | ActiveRecord: 2.4ms | Allocations: 3942)
+
+
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16] Performing UpdateTitleJob (Job ID: 94b3154a-ef52-4110-9d08-ba2b8d4f8b16) from Resque(default) enqueued at 2021-12-16T19:54:18Z with arguments: 26
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 26 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   [1m[36mShortUrl Update (0.5ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'hello network', `short_urls`.`updated_at` = '2021-12-16 19:54:21.447035' WHERE `short_urls`.`id` = 26[0m
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [94b3154a-ef52-4110-9d08-ba2b8d4f8b16] Performed UpdateTitleJob (Job ID: 94b3154a-ef52-4110-9d08-ba2b8d4f8b16) from Resque(default) in 386.65ms
+Started GET "/q" for 172.19.0.1 at 2021-12-16 19:55:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"q"}
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 26 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.5ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 19:55:00.296077' WHERE `short_urls`.`id` = 26[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to http://www.hello.com
+Completed 302 Found in 20ms (ActiveRecord: 2.7ms | Allocations: 3342)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 19:55:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"http://www.hello.com", "short_url"=>{"full_url"=>"http://www.hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.9ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://www.hello.com', '2021-12-16 19:55:22.382676', '2021-12-16 19:55:22.382676')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 12b7dc9b-4c7c-43eb-8349-c6af967e21bd) to Resque(default) with arguments: 27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 71)
+Completed 200 OK in 21ms (Views: 2.7ms | ActiveRecord: 2.6ms | Allocations: 3959)
+
+
+Started GET "/r" for 172.19.0.1 at 2021-12-16 19:55:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"r"}
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 27 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.8ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-16 19:55:25.291961' WHERE `short_urls`.`id` = 27[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to http://www.hello.com
+Completed 302 Found in 20ms (ActiveRecord: 3.6ms | Allocations: 3340)
+
+
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd] Performing UpdateTitleJob (Job ID: 12b7dc9b-4c7c-43eb-8349-c6af967e21bd) from Resque(default) enqueued at 2021-12-16T19:55:22Z with arguments: 27
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 27 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   [1m[36mShortUrl Update (0.6ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'hello network', `short_urls`.`updated_at` = '2021-12-16 19:55:27.396419' WHERE `short_urls`.`id` = 27[0m
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd]   ↳ app/models/short_url.rb:28:in `update_title!'
+[ActiveJob] [UpdateTitleJob] [12b7dc9b-4c7c-43eb-8349-c6af967e21bd] Performed UpdateTitleJob (Job ID: 12b7dc9b-4c7c-43eb-8349-c6af967e21bd) from Resque(default) in 378.92ms
+Started GET "/" for 172.19.0.1 at 2021-12-16 19:57:11 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as HTML
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.0ms | Allocations: 1405)
+
+
+  
+ActionController::UnknownFormat (ShortUrlsController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []):
+  
+actionpack (6.0.3.6) lib/action_controller/metal/implicit_render.rb:42:in `default_render'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.6) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.6) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.6) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.6) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.6) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.6) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.6) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.6) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.6) lib/rails/engine.rb:527:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 172.19.0.1 at 2021-12-16 19:57:13 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as HTML
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 623)
+
+
+  
+ActionController::UnknownFormat (ShortUrlsController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []):
+  
+actionpack (6.0.3.6) lib/action_controller/metal/implicit_render.rb:42:in `default_render'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.6) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.6) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.6) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.6) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.6) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.6) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.6) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.6) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.6) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.6) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.6) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.6) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.6) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.6) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.6) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.6) lib/rails/engine.rb:527:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
