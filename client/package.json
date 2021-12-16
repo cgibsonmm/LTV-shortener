@@ -2,13 +2,14 @@
   "name": "client",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "cypress open"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
