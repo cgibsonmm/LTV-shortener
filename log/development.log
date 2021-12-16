@@ -2621,3 +2621,61 @@ Completed 200 OK in 21ms (Views: 2.9ms | ActiveRecord: 2.7ms | Allocations: 3937
 [ActiveJob] [UpdateTitleJob] [9fe24bfb-bb1c-45fd-9069-ced38740df92]   [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
 [ActiveJob] [UpdateTitleJob] [9fe24bfb-bb1c-45fd-9069-ced38740df92]   ↳ app/models/short_url.rb:28:in `update_title!'
 [ActiveJob] [UpdateTitleJob] [9fe24bfb-bb1c-45fd-9069-ced38740df92] Performed UpdateTitleJob (Job ID: 9fe24bfb-bb1c-45fd-9069-ced38740df92) from Resque(default) in 475.21ms
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 03:49:39 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 4.7ms | Allocations: 188)
+Completed 422 Unprocessable Entity in 16ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-16 03:49:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.7ms | Allocations: 128)
+Completed 422 Unprocessable Entity in 9ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 1936)
+
+
+Started POST "/short_urls" for 172.19.0.1 at 2021-12-16 04:11:50 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#create as */*
+  Parameters: {"full_url"=>"www.google.com", "short_url"=>{"full_url"=>"www.google.com"}}
+[31mUnpermitted parameter: :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.7ms | Allocations: 128)
+Completed 422 Unprocessable Entity in 10ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 1646)
+
+
+Started POST "/short_urls" for 172.19.0.1 at 2021-12-16 04:14:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as */*
+  Parameters: {"full_url"=>"www.google.com", "short_url"=>{"full_url"=>"www.google.com"}}
+[31mUnpermitted parameter: :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 3.1ms | Allocations: 845)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 3401)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 2)):
+    1: json.errors @error.record.errors.full_message
+  
+app/views/errors/record_invalid.json.jbuilder:1
+app/controllers/short_urls_controller.rb:40:in `record_invalid'
+Started POST "/short_urls" for 172.19.0.1 at 2021-12-16 04:14:32 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as */*
+  Parameters: {"full_url"=>"www.google.com", "short_url"=>{"full_url"=>"www.google.com"}}
+[31mUnpermitted parameter: :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 6.9ms | Allocations: 247)
+Completed 422 Unprocessable Entity in 28ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 2833)
+
+
