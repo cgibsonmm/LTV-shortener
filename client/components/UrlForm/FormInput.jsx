@@ -12,9 +12,17 @@ export default function FormInput({ handleSubmit }) {
         type="url"
         value={urlInput}
         onChange={(e) => setUrlInput(e.target.value)}
-        pattern="https?://.+"
+
+        // Disabled due to requirements I would normally add check
+        // so I can never submit the request without it being a valid URL
+        // pattern="https?://.+"
       />
-      <button data-testid="submit-btn" disabled={!urlInput}>
+      <button
+        data-testid="submit-btn"
+
+        // See above
+        // disabled={!urlInput}
+      >
         Compress
       </button>
     </form>

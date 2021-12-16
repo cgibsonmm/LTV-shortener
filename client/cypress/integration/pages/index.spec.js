@@ -26,7 +26,22 @@ describe("index", () => {
   });
 
   context("Invalid URL", () => {
-    it("cannot submit without a valid url", () => {
+    it("displays an error message if the URL is invalid", () => {
+      cy.intercept("/short_urls.json", {
+        fixture: "createURLFailure",
+        statusCode: 422,
+      }).as("createShortURL");
+      cy.findByTestId("form-input").type("http://www.some-random-error.com");
+      cy.findByTestId("submit-btn").click();
+      cy.wait(["@createShortURL"]).then((intercept) => {
+        assert.isNotNull(intercept.response.body);
+      });
+      cy.findAllByTestId("error").should("be.visible");
+      cy.findAllByTestId("error").should("have.class", "text-red-500");
+    });
+
+    // Disabled due to error message requirements
+    xit("cannot submit without a valid url", () => {
       cy.findAllByTestId("submit-btn").should("be.disabled");
     });
   });
