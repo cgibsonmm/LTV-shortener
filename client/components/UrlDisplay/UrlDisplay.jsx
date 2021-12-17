@@ -1,4 +1,4 @@
-const BASE_URL = process.env.BACKEND_URL || "http://localhost:3000";
+import { BASE_URL } from "../../services/endpoint";
 
 export default function UrlDisplay({ shortURLData }) {
   const { short_code } = shortURLData;

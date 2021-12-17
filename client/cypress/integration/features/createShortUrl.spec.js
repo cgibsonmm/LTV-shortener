@@ -1,5 +1,4 @@
-const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3000";
+import { BASE_URL, BACKEND_URL } from "../../../services/endpoint";
 
 describe("index", () => {
   beforeEach(() => {

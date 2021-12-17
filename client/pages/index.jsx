@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Top100Container from "../components/Top100/Top100Container";
 
 import UrlDisplay from "../components/UrlDisplay/UrlDisplay";
 import UrlFormContainer from "../components/UrlForm/UrlFormContainer";
@@ -13,6 +14,7 @@ export default function Home() {
       ) : (
         <UrlFormContainer setShortURLData={setShortURLData} />
       )}
+      <Top100Container />
     </>
   );
 }
