@@ -4,7 +4,7 @@ import { BACKEND_URL } from "../../services/endpoint";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-export default function ListRow({ item }) {
+export default function ListRow({ item, index, length }) {
   const [copied, setCopied] = useState(false);
   const { full_url, click_count, short_code } = item;
 
@@ -20,8 +20,13 @@ export default function ListRow({ item }) {
   return (
     <tr
       data-testid="top-item"
-      className="border-t-2 border-x-2 border-gray-400"
+      className={
+        length === index - 1
+          ? "border-t-2 border-x-2 border-gray-400"
+          : "border-t-2 border-b-2 border-x-2 border-gray-400"
+      }
     >
+      <td className="text-center">{index + 1}</td>
       <td className=" text-center overflow-hidden">
         <a className="hover:text-blue-500" href={full_url}>
           {full_url}
