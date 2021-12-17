@@ -1,3 +1,43 @@
+# Part 2
+
+I decided to use a Next.js build to create my frontend, Next may be overkill for a app this size but I do prefer the dev environment over CRA. This should accomplish all tasks with minor setup.
+
+I did not run a build command on this to test everything in a production environment.
+
+For now all frontend code live in the Client Folder
+
+I decided to lightly test functility with Cypress testing, I have wanted to try this for awhile but never really got around to it. I am very impressed and hope to dive in more in the future. 
+Here is the link to the [Doc](https://docs.cypress.io/guides/overview/why-cypress) if you needed any further install help.
+
+Run the basic test suite with
+
+## Next.js setup info
+
+`$ cd client`
+
+For Yarn 
+
+Install:
+`$ yarn install`
+
+Dev Server:
+`$ yarn dev`
+
+Test:
+`$ yarn test` 
+
+For NPM 
+
+Install:
+`$ npm install`
+
+Dev Server:
+`$ npm run dev`
+
+Test:
+`$ npm run test` 
+
+
 # Bijective Function
 
 After a night or two of searching for a possible solution to this problem I kept coming back to
