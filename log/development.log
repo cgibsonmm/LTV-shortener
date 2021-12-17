@@ -4834,3 +4834,184 @@ Processing by ShortUrlsController#index as JSON
 Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.8ms | Allocations: 3274)
 
 
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:13:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 13.1ms | Allocations: 2836)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 1.2ms | Allocations: 3274)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:13:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 6.4ms | Allocations: 2836)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.7ms | Allocations: 3274)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:14:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.1ms | Allocations: 2836)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.7ms | Allocations: 3274)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:14:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.7ms | Allocations: 2836)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 1.5ms | Allocations: 3274)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:29:31 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.8ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 8ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 2184)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:29:40 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 11.1ms | Allocations: 2837)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.8ms | Allocations: 3275)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:33:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.5ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 6ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2145)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:34:47 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.9ms | Allocations: 2838)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.7ms | Allocations: 3276)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:38:10 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.1ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 6.8ms | Allocations: 2836)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 1.1ms | Allocations: 3274)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:38:11 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.4ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 6ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:38:20 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.5ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 6ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:38:24 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.3ms | Allocations: 2838)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.8ms | Allocations: 3276)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:38:28 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.5ms | Allocations: 2836)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.3ms | Allocations: 3274)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:39:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.6ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:43:16 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.7ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:44:13 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 13.1ms | Allocations: 2838)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.7ms | Allocations: 3276)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:44:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 11.6ms | Allocations: 2836)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 1.2ms | Allocations: 3274)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:46:08 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.6ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 6ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+

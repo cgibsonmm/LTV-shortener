@@ -19,9 +19,9 @@ export default function UrlInputForm({ setShortURLData }) {
   };
 
   return (
-    <>
-      <FormErrors errors={errors} />
+    <div className="bg-blue-600 mt-4 mx-2 rounded min-h-20 p-4 flex flex-col items-center justify-center md:w-3/4 md:mx-auto">
       <FormInput handleSubmit={handleSubmit} />
-    </>
+      <FormErrors errors={errors} />
+    </div>
   );
 }
