@@ -4,6 +4,7 @@ export default function Navbar({ toggle }) {
       <div className="mx-auto container h-20 flex justify-center items-center lg:justify-start">
         {/* On Click allows forms to reset */}
         <h1
+          data-testid="site-heading"
           className="text-3xl text-gray-100 hover:cursor-pointer"
           onClick={toggle}
         >

@@ -5,7 +5,7 @@ describe("index", () => {
     cy.visit(BASE_URL);
   });
   it("renders", () => {
-    cy.findAllByText("CompressURL").should("exist");
+    cy.findByTestId("site-heading").should("exist");
     cy.findByTestId("form-input").should("exist");
   });
 

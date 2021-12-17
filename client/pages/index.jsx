@@ -18,7 +18,8 @@ export default function Home({ reloadToggle }) {
       ) : (
         <UrlFormContainer setShortURLData={setShortURLData} />
       )}
-      <Top100Container reloadToggle={reloadToggle} />
+      {/* Passing down state to take advantage of useEffect dependency to query db */}
+      <Top100Container shortURLData={shortURLData} />
     </>
   );
 }

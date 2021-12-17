@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchTop100 } from "../../services/axios/get";
 import Top100List from "./Top100List";
 
-export default function Top100Container() {
+export default function Top100Container({ shortURLData }) {
   const [top100, setTop100] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function Top100Container() {
       setTop100(res);
     };
     fetchData();
-  }, []);
+  }, [shortURLData]);
 
   return (
     <div className="flex flex-col items-center">
