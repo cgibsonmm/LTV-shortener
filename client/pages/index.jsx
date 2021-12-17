@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Top100Container from "../components/Top100/Top100Container";
 
 import UrlDisplay from "../components/UrlDisplay/UrlDisplay";
 import UrlFormContainer from "../components/UrlForm/UrlFormContainer";
 
-export default function Home() {
+export default function Home({ reloadToggle }) {
   const [shortURLData, setShortURLData] = useState({});
+
+  useEffect(() => {
+    setShortURLData({});
+  }, [reloadToggle]);
+
   return (
     <>
       {shortURLData.hasOwnProperty("short_code") ? (
@@ -13,7 +18,7 @@ export default function Home() {
       ) : (
         <UrlFormContainer setShortURLData={setShortURLData} />
       )}
-      <Top100Container />
+      <Top100Container reloadToggle={reloadToggle} />
     </>
   );
 }

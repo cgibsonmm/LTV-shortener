@@ -5755,3 +5755,1478 @@ Completed 200 OK in 145ms (Views: 7.9ms | ActiveRecord: 2.1ms | Allocations: 128
 /usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
 /usr/local/bin/bundle:23:in `load'
 /usr/local/bin/bundle:23:in `<main>'
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:50:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.8ms | Allocations: 2908)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 3347)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:50:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.6ms | Allocations: 2908)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.9ms | Allocations: 3346)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:50:39 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.4ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 03:50:39.845745', '2021-12-17 03:50:39.845745')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 8ba07f06-a11d-4255-82ca-67ebf70bd002) to Resque(default) with arguments: 29
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 37ms (Views: 22.8ms | ActiveRecord: 1.8ms | Allocations: 3941)
+
+
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002] Performing UpdateTitleJob (Job ID: 8ba07f06-a11d-4255-82ca-67ebf70bd002) from Resque(default) enqueued at 2021-12-17T03:50:39Z with arguments: 29
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 29 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [8ba07f06-a11d-4255-82ca-67ebf70bd002] Error performing UpdateTitleJob (Job ID: 8ba07f06-a11d-4255-82ca-67ebf70bd002) from Resque(default) in 213.96ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:53:37 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.3ms | Allocations: 2980)
+Completed 200 OK in 13ms (Views: 10.2ms | ActiveRecord: 0.8ms | Allocations: 3418)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:53:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.7ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 03:53:58.500041', '2021-12-17 03:53:58.500041')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 1746d2f2-7c98-4993-8594-a9f6f253bbe9) to Resque(default) with arguments: 30
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.3ms | Allocations: 70)
+Completed 200 OK in 19ms (Views: 3.1ms | ActiveRecord: 1.9ms | Allocations: 3941)
+
+
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9] Performing UpdateTitleJob (Job ID: 1746d2f2-7c98-4993-8594-a9f6f253bbe9) from Resque(default) enqueued at 2021-12-17T03:53:58Z with arguments: 30
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9]   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 30 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [1746d2f2-7c98-4993-8594-a9f6f253bbe9] Error performing UpdateTitleJob (Job ID: 1746d2f2-7c98-4993-8594-a9f6f253bbe9) from Resque(default) in 201.06ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:54:08 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.3ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 03:54:08.503647', '2021-12-17 03:54:08.503647')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 18a0d808-c580-4f84-bf9d-44df7977ac5a) to Resque(default) with arguments: 31
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.3ms | Allocations: 70)
+Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 1.4ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a] Performing UpdateTitleJob (Job ID: 18a0d808-c580-4f84-bf9d-44df7977ac5a) from Resque(default) enqueued at 2021-12-17T03:54:08Z with arguments: 31
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a]   [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 31 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [18a0d808-c580-4f84-bf9d-44df7977ac5a] Error performing UpdateTitleJob (Job ID: 18a0d808-c580-4f84-bf9d-44df7977ac5a) from Resque(default) in 181.03ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:54:31 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.9ms | Allocations: 3124)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 1.2ms | Allocations: 3562)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:54:34 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 03:54:34.318943', '2021-12-17 03:54:34.318943')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 66af1a00-06ee-4afa-98a7-f66c6ee3a6c7) to Resque(default) with arguments: 32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 18ms (Views: 2.5ms | ActiveRecord: 2.2ms | Allocations: 3943)
+
+
+Started GET "/w" for 172.19.0.1 at 2021-12-17 03:54:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"w"}
+  [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 32 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.4ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-17 03:54:36.244673' WHERE `short_urls`.`id` = 32[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://hello.com
+Completed 302 Found in 21ms (ActiveRecord: 1.7ms | Allocations: 6086)
+
+
+Started GET "/service-worker.js" for 172.19.0.1 at 2021-12-17 03:54:37 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as JS
+  Parameters: {"id"=>"service-worker"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 949)
+
+
+  
+NoMethodError (undefined method `*' for nil:NilClass):
+  
+lib/id_parser.rb:31:in `block in decode_id'
+lib/id_parser.rb:30:in `each'
+lib/id_parser.rb:30:in `decode_id'
+app/models/short_url.rb:13:in `find_by_short_code'
+app/controllers/short_urls_controller.rb:30:in `find_short_url'
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7] Performing UpdateTitleJob (Job ID: 66af1a00-06ee-4afa-98a7-f66c6ee3a6c7) from Resque(default) enqueued at 2021-12-17T03:54:34Z with arguments: 32
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7]   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 32 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [66af1a00-06ee-4afa-98a7-f66c6ee3a6c7] Error performing UpdateTitleJob (Job ID: 66af1a00-06ee-4afa-98a7-f66c6ee3a6c7) from Resque(default) in 294.88ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started GET "/b" for 172.19.0.1 at 2021-12-17 03:54:50 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as HTML
+  Parameters: {"id"=>"b"}
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 11 LIMIT 1[0m
+  ↳ app/models/short_url.rb:13:in `find_by_short_code'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[36mShortUrl Update (0.6ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = 1, `short_urls`.`updated_at` = '2021-12-17 03:54:50.972569' WHERE `short_urls`.`id` = 11[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:19:in `show'
+Redirected to https://hello.com
+Completed 302 Found in 18ms (ActiveRecord: 2.4ms | Allocations: 3329)
+
+
+Started GET "/service-worker.js" for 172.19.0.1 at 2021-12-17 03:54:52 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as JS
+  Parameters: {"id"=>"service-worker"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 949)
+
+
+  
+NoMethodError (undefined method `*' for nil:NilClass):
+  
+lib/id_parser.rb:31:in `block in decode_id'
+lib/id_parser.rb:30:in `each'
+lib/id_parser.rb:30:in `decode_id'
+app/models/short_url.rb:13:in `find_by_short_code'
+app/controllers/short_urls_controller.rb:30:in `find_short_url'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:55:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.6ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2156)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:56:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 11.4ms | Allocations: 3197)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 1.4ms | Allocations: 3635)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:56:15 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 13.5ms | Allocations: 3196)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.8ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:59:54 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 10.3ms | Allocations: 3196)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 1.2ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:59:54 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.9ms | Allocations: 3196)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.7ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 03:59:56 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 33.6ms | Allocations: 3196)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.7ms | Allocations: 3637)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 03:59:59 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.4ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2156)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:00:01 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 10.1ms | Allocations: 3198)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.8ms | Allocations: 3636)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:00:06 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 10.4ms | Allocations: 3196)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.6ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:01:45 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 9.2ms | Allocations: 3196)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.6ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:01:45 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 9.4ms | Allocations: 3196)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:05:52 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 12.9ms | Allocations: 3196)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 1.2ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:05:52 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 6.8ms | Allocations: 3196)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.6ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:06:04 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 6.2ms | Allocations: 3196)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 3634)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:06:04 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.5ms | Allocations: 3196)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.9ms | Allocations: 3634)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:06:32 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.5ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 6ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:06:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:06:36.024032', '2021-12-17 04:06:36.024032')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 81fbe6ad-4508-49a1-9671-3d1274a3ca10) to Resque(default) with arguments: 33
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 17ms (Views: 2.3ms | ActiveRecord: 2.7ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10] Performing UpdateTitleJob (Job ID: 81fbe6ad-4508-49a1-9671-3d1274a3ca10) from Resque(default) enqueued at 2021-12-17T04:06:36Z with arguments: 33
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 33 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [81fbe6ad-4508-49a1-9671-3d1274a3ca10] Error performing UpdateTitleJob (Job ID: 81fbe6ad-4508-49a1-9671-3d1274a3ca10) from Resque(default) in 183.36ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started GET "/" for 172.19.0.1 at 2021-12-17 04:07:14 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.1ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.9ms | Allocations: 3268)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 1.1ms | Allocations: 3706)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:07:42 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 0.7ms | Allocations: 338)
+Completed 422 Unprocessable Entity in 7ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 2143)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:07:46 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:07:46.289109', '2021-12-17 04:07:46.289109')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: b4da69c0-fbb2-4f3e-82cc-250e03f1e256) to Resque(default) with arguments: 34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 19ms (Views: 3.8ms | ActiveRecord: 2.1ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256] Performing UpdateTitleJob (Job ID: b4da69c0-fbb2-4f3e-82cc-250e03f1e256) from Resque(default) enqueued at 2021-12-17T04:07:46Z with arguments: 34
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256]   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 34 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [b4da69c0-fbb2-4f3e-82cc-250e03f1e256] Error performing UpdateTitleJob (Job ID: b4da69c0-fbb2-4f3e-82cc-250e03f1e256) from Resque(default) in 226.83ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:07:52 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:07:52.255972', '2021-12-17 04:07:52.255972')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: ad89ec30-a696-4140-bf15-523633cdc60c) to Resque(default) with arguments: 35
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 16ms (Views: 2.3ms | ActiveRecord: 1.6ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c] Performing UpdateTitleJob (Job ID: ad89ec30-a696-4140-bf15-523633cdc60c) from Resque(default) enqueued at 2021-12-17T04:07:52Z with arguments: 35
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c]   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 35 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [ad89ec30-a696-4140-bf15-523633cdc60c] Error performing UpdateTitleJob (Job ID: ad89ec30-a696-4140-bf15-523633cdc60c) from Resque(default) in 237.32ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:07:58 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"http://localhost:3000/1http://localhost:3000/h", "short_url"=>{"full_url"=>"http://localhost:3000/1http://localhost:3000/h"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.4ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('http://localhost:3000/1http://localhost:3000/h', '2021-12-17 04:07:58.461757', '2021-12-17 04:07:58.461757')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: e196ec3c-859d-40c0-ad6f-8413bf4cbb8b) to Resque(default) with arguments: 36
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 15ms (Views: 2.1ms | ActiveRecord: 1.6ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b] Performing UpdateTitleJob (Job ID: e196ec3c-859d-40c0-ad6f-8413bf4cbb8b) from Resque(default) enqueued at 2021-12-17T04:07:58Z with arguments: 36
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b]   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 36 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [e196ec3c-859d-40c0-ad6f-8413bf4cbb8b] Error performing UpdateTitleJob (Job ID: e196ec3c-859d-40c0-ad6f-8413bf4cbb8b) from Resque(default) in 74.9ms: Errno::EADDRNOTAVAIL (Failed to open TCP connection to localhost:3000 (Cannot assign requested address - connect(2) for "localhost" port 3000)):
+/usr/local/lib/ruby/2.6.0/net/http.rb:949:in `rescue in block in connect'
+/usr/local/lib/ruby/2.6.0/net/http.rb:946:in `block in connect'
+/usr/local/lib/ruby/2.6.0/timeout.rb:93:in `block in timeout'
+/usr/local/lib/ruby/2.6.0/timeout.rb:103:in `timeout'
+/usr/local/lib/ruby/2.6.0/net/http.rb:945:in `connect'
+/usr/local/lib/ruby/2.6.0/net/http.rb:930:in `do_start'
+/usr/local/lib/ruby/2.6.0/net/http.rb:919:in `start'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:337:in `open_http'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:756:in `buffer_open'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:226:in `block in open_loop'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:224:in `catch'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:224:in `open_loop'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:165:in `open_uri'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:736:in `open'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:35:in `open'
+/usr/local/lib/ruby/2.6.0/open-uri.rb:46:in `open'
+/app/app/models/short_url.rb:26:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:09:51 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.4ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:09:51.234527', '2021-12-17 04:09:51.234527')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 439c73f8-6d20-434a-a3a9-2a8d991c7d45) to Resque(default) with arguments: 37
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 17ms (Views: 2.7ms | ActiveRecord: 1.6ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45] Performing UpdateTitleJob (Job ID: 439c73f8-6d20-434a-a3a9-2a8d991c7d45) from Resque(default) enqueued at 2021-12-17T04:09:51Z with arguments: 37
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 37 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [439c73f8-6d20-434a-a3a9-2a8d991c7d45] Error performing UpdateTitleJob (Job ID: 439c73f8-6d20-434a-a3a9-2a8d991c7d45) from Resque(default) in 207.07ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:11:16 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.4ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:11:16.452605', '2021-12-17 04:11:16.452605')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b) to Resque(default) with arguments: 38
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 16ms (Views: 2.1ms | ActiveRecord: 1.7ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b] Performing UpdateTitleJob (Job ID: f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b) from Resque(default) enqueued at 2021-12-17T04:11:16Z with arguments: 38
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b]   [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 38 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b] Error performing UpdateTitleJob (Job ID: f6f6dbd1-0429-4d1c-817e-65b69b7fcf2b) from Resque(default) in 203.04ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 04:11:31 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://hello.com", "short_url"=>{"full_url"=>"https://hello.com"}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (0.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://hello.com', '2021-12-17 04:11:31.918335', '2021-12-17 04:11:31.918335')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: efcb89e1-1dde-435a-bde3-8b18bd07144e) to Resque(default) with arguments: 39
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  Rendering short_urls/show.json.jbuilder
+  Rendered short_urls/show.json.jbuilder (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 20ms (Views: 2.3ms | ActiveRecord: 1.8ms | Allocations: 3937)
+
+
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e] Performing UpdateTitleJob (Job ID: efcb89e1-1dde-435a-bde3-8b18bd07144e) from Resque(default) enqueued at 2021-12-17T04:11:31Z with arguments: 39
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e]   [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e]   [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 39 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e]   ↳ app/jobs/update_title_job.rb:5:in `perform'
+[ActiveJob] [UpdateTitleJob] [efcb89e1-1dde-435a-bde3-8b18bd07144e] Error performing UpdateTitleJob (Job ID: efcb89e1-1dde-435a-bde3-8b18bd07144e) from Resque(default) in 191.66ms: NoMethodError (undefined method `text' for nil:NilClass):
+/app/app/models/short_url.rb:27:in `update_title!'
+/app/app/jobs/update_title_job.rb:7:in `perform'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:40:in `block in perform_now'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/i18n-1.8.10/lib/i18n.rb:314:in `with_locale'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `block in instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/notifications.rb:180:in `instrument'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `block in tag_logger'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:28:in `tagged'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/tagged_logging.rb:80:in `tagged'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:45:in `tag_logger'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:39:in `perform_now'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:25:in `block in execute'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:72:in `block in wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/reloader.rb:71:in `wrap'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `instance_exec'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/usr/local/bundle/gems/activesupport-6.0.3.6/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/execution.rb:23:in `execute'
+/usr/local/bundle/gems/activejob-6.0.3.6/lib/active_job/queue_adapters/resque_adapter.rb:47:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/job.rb:168:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:308:in `perform'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:897:in `block in perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:895:in `perform_with_fork'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:264:in `work_one_job'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:238:in `block in work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `loop'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/worker.rb:235:in `work'
+/usr/local/bundle/gems/resque-2.0.0/lib/resque/tasks.rb:20:in `block (2 levels) in <main>'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `block in execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:273:in `execute'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:214:in `block in invoke_with_call_chain'
+/usr/local/lib/ruby/2.6.0/monitor.rb:235:in `mon_synchronize'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:194:in `invoke_with_call_chain'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/task.rb:183:in `invoke'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:160:in `invoke_task'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block (2 levels) in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `each'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:116:in `block in top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:125:in `run_with_threads'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:110:in `top_level'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:83:in `block in run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:186:in `standard_exception_handling'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/lib/rake/application.rb:80:in `run'
+/usr/local/lib/ruby/gems/2.6.0/gems/rake-12.3.3/exe/rake:27:in `<top (required)>'
+/usr/local/bin/rake:23:in `load'
+/usr/local/bin/rake:23:in `<top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:74:in `kernel_load'
+/usr/local/lib/ruby/2.6.0/bundler/cli/exec.rb:28:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:463:in `exec'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:27:in `dispatch'
+/usr/local/lib/ruby/2.6.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
+/usr/local/lib/ruby/2.6.0/bundler/cli.rb:18:in `start'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:30:in `block in <top (required)>'
+/usr/local/lib/ruby/2.6.0/bundler/friendly_errors.rb:124:in `with_friendly_errors'
+/usr/local/lib/ruby/gems/2.6.0/gems/bundler-1.17.2/exe/bundle:22:in `<top (required)>'
+/usr/local/bin/bundle:23:in `load'
+/usr/local/bin/bundle:23:in `<main>'

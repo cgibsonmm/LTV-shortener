@@ -5,7 +5,10 @@ export default function FormInput({ handleSubmit }) {
 
   return (
     <form
-      onSubmit={(e) => handleSubmit(e, urlInput)}
+      onSubmit={(e) => {
+        handleSubmit(e, urlInput);
+        setUrlInput("");
+      }}
       className="flex w-full items-center"
     >
       <div className="flex items-center w-full">
