@@ -3,6 +3,7 @@ import { BASE_URL } from "../../../services/endpoint";
 describe("Top100", () => {
   beforeEach(() => {
     cy.visit(BASE_URL);
+    cy.viewport(500, 1000);
   });
 
   it("renders", () => {

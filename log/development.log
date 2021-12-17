@@ -4691,3 +4691,146 @@ Processing by ShortUrlsController#index as JSON
 Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.0ms | Allocations: 3274)
 
 
+Started GET "/" for 172.19.0.1 at 2021-12-17 01:57:56 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 21.2ms | Allocations: 7441)
+Completed 200 OK in 56ms (Views: 32.6ms | ActiveRecord: 2.7ms | Allocations: 10482)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 01:59:33 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.0ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 8.6ms | Allocations: 2845)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 1.0ms | Allocations: 3293)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:01:02 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 12.1ms | Allocations: 2845)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 3292)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:01:27 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 15.7ms | Allocations: 2845)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.8ms | Allocations: 3292)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:01:59 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 18.1ms | Allocations: 2845)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.9ms | Allocations: 3292)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:02:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (1.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 43.4ms | Allocations: 2836)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 1.6ms | Allocations: 3277)
+
+
+Started POST "/short_urls.json" for 172.19.0.1 at 2021-12-17 02:04:11 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"", "short_url"=>{"full_url"=>""}}
+[31mUnpermitted parameters: :format, :short_url[0m
+  Rendering errors/record_invalid.json.jbuilder
+  Rendered errors/record_invalid.json.jbuilder (Duration: 2.3ms | Allocations: 399)
+Completed 422 Unprocessable Entity in 30ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 3701)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:04:16 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.4ms | Allocations: 2838)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 3277)
+
+
+Started GET "/service-worker.js" for 172.19.0.1 at 2021-12-17 02:04:18 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as JS
+  Parameters: {"id"=>"service-worker"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 943)
+
+
+  
+NoMethodError (undefined method `*' for nil:NilClass):
+  
+lib/id_parser.rb:31:in `block in decode_id'
+lib/id_parser.rb:30:in `each'
+lib/id_parser.rb:30:in `decode_id'
+app/models/short_url.rb:13:in `find_by_short_code'
+app/controllers/short_urls_controller.rb:30:in `find_short_url'
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:04:21 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 6.2ms | Allocations: 2853)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.7ms | Allocations: 3313)
+
+
+Started GET "/service-worker.js" for 172.19.0.1 at 2021-12-17 02:04:47 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as JS
+  Parameters: {"id"=>"service-worker"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 957)
+
+
+  
+NoMethodError (undefined method `*' for nil:NilClass):
+  
+lib/id_parser.rb:31:in `block in decode_id'
+lib/id_parser.rb:30:in `each'
+lib/id_parser.rb:30:in `decode_id'
+app/models/short_url.rb:13:in `find_by_short_code'
+app/controllers/short_urls_controller.rb:30:in `find_short_url'
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:10:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 10.0ms | Allocations: 2835)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.9ms | Allocations: 3273)
+
+
+Started GET "/" for 172.19.0.1 at 2021-12-17 02:10:43 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as JSON
+  Rendering short_urls/index.json.jbuilder
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY click_count DESC LIMIT 100[0m
+  ↳ app/views/short_urls/index.json.jbuilder:2
+  Rendered short_urls/index.json.jbuilder (Duration: 7.9ms | Allocations: 2836)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.8ms | Allocations: 3274)
+
+
