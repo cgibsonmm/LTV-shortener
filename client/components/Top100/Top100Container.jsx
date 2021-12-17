@@ -14,8 +14,13 @@ export default function Top100Container() {
   }, []);
 
   return (
-    <div>
-      <h2 data-testid="top-100-heading">Top 100</h2>
+    <div className="flex flex-col items-center">
+      <h2
+        data-testid="top-100-heading"
+        className="mt-4 text-xl font-bold border-b-4 border-blue-400 text-gray-900"
+      >
+        Top 100
+      </h2>
       <Top100List top100={top100} />
     </div>
   );
