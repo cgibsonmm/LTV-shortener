@@ -5,7 +5,7 @@ export const post = async (payload) => {
     const res = await api.post("/short_urls.json", payload);
     return res.data;
   } catch (error) {
-    console.error(error.response.status);
-    return error.response.data;
+    console.error(error.response?.status || error);
+    return error.response?.data || error;
   }
 };

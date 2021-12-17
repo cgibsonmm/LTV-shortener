@@ -1,7 +1,7 @@
 import ListRow from "./ListRow";
 
 export default function Top100List({ top100 }) {
-  const length = top100.length;
+  const length = top100?.length;
   return (
     <div className="w-full px-2">
       <table className="mt-4 w-full table-auto">
@@ -15,7 +15,7 @@ export default function Top100List({ top100 }) {
           </tr>
         </thead>
         <tbody>
-          {top100.map((item, index) => (
+          {top100?.map((item, index) => (
             <ListRow
               key={item.short_code}
               item={item}
