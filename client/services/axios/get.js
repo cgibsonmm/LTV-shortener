@@ -6,7 +6,7 @@ export const fetchTop100 = async () => {
     const res = await api(BACKEND_URL);
     return res.data.urls;
   } catch (error) {
-    console.error(error.response.status);
-    return error.response.data;
+    console.error(error.response?.status || error);
+    return error.response?.data || error;
   }
 };

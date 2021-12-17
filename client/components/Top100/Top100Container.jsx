@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchTop100 } from "../../services/axios/get";
 import Top100List from "./Top100List";
+import Loading from "../shared/Loading";
 
 export default function Top100Container({ shortURLData }) {
   const [top100, setTop100] = useState([]);
@@ -21,7 +22,7 @@ export default function Top100Container({ shortURLData }) {
       >
         Top 100
       </h2>
-      <Top100List top100={top100} />
+      {top100.length > 1 ? <Top100List top100={top100} /> : <Loading />}
     </div>
   );
 }
